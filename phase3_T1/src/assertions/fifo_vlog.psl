@@ -1,0 +1,27 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+//               Copyright 2006-2016 Mentor Graphics Corporation
+//                          All Rights Reserved.
+//  
+//             THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY
+//           INFORMATION WHICH IS THE PROPERTY OF MENTOR GRAPHICS 
+//          CORPORATION OR ITS LICENSORS AND IS SUBJECT TO LICENSE
+//                                 TERMS.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+vunit arbiter_checker_psl(TWOFIFOWRAPPER){
+
+default clock = rose(clk);
+
+// Single-grant check
+
+// Known-grant checks
+
+// assumptions
+full_no_write: assume (never out_is_full && in_write_ctrl) @clk;
+empty_no_read: assume (never out_is_empty && in_read_ctrl) @clk;
+
+// Coverage: grant asserted
+
+}
