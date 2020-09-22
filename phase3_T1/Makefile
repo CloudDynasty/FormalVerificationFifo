@@ -18,7 +18,7 @@ VLOG = ${QHOME}/modeltech/plat/vlog
 compile:
 	$(VLIB) work
 	$(VMAP) work work
-	$(VLOG) ./src/vlog/TWOFIFOWRAPPER.sv -pslfile ./src/assertions/fifo_vlog.psl \
+	$(VLOG) ./src/vlog/fifo_wrapper.sv -pslfile ./src/assertions/fifo_vlog.psl \
 		+incdir+${QHOME}/share/assertion_lib/OVL/verilog \
 		+define+OVL_SVA+OVL_ASSERT_ON+OVL_COVER_ON+OVL_XCHECK_OFF
 
@@ -26,7 +26,7 @@ compile:
 formal:
 	qverify -c -od Output_Results -do "\
 		do qs_files/directives.tcl; \
-		formal compile -d TWOFIFOWRAPPER; \
+		formal compile -d fifo_wrapper; \
 		formal verify -init qs_files/fifo.init \
 		-timeout 5m; \
 		exit"
